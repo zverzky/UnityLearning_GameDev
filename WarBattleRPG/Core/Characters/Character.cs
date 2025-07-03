@@ -13,7 +13,6 @@ namespace ZverzkyGame.Core.Characters
         private PowerAttack powerAttack;
         private Health health;
         private Difference difference;
-        private Health maxHealth;
         private Level level;
         private Expirience expirience;
 
