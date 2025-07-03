@@ -32,17 +32,36 @@ namespace ZverzkyGame.Core.Characters
 
         public void Attack(ICharacter target)
         {
-            throw new NotImplementedException();
+            if (this.PowerAttack.CountAttack % 4 == 0) 
+            {
+                SpecialSkill(target);
+            }
+            double attackpower = this.PowerAttack.BasepowerAttackChar;
+            target.TakeDamage(attackpower);
+            this.PowerAttack.CountAttack += 1;
         }
 
         public void SpecialSkill(ICharacter target)
         {
-            throw new NotImplementedException();
+            if (target.Health.CurrentHealthChar > target.Health.BasehealthChar/2) 
+                target.Health.CurrentHealthChar = target.Health.CurrentHealthChar / 2;
+            else 
+            {
+                target.Health.CurrentHealthChar = target.Health.CurrentHealthChar - 
+                    target.Health.BasehealthChar;
+                if (target.Health.CurrentHealthChar <= 0) target.Health.CurrentHealthChar = 0;
+            }
+
         }
 
         public void TakeDamage(double damage)
         {
-            throw new NotImplementedException();
+            double effectiveDamage = difference.EffectivePhysicalDifference(damage);
+            health.CurrentHealthChar -= effectiveDamage;
+            if (health.CurrentHealthChar < 0)
+            {
+                health.CurrentHealthChar = 0;
+            }
         }
     }
 }

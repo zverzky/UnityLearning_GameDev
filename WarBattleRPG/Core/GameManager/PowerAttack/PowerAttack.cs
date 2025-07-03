@@ -10,6 +10,7 @@ namespace ZverzkyGame.Core.GameManager.PowerAttack
     public class PowerAttack
     {
         public double BasepowerAttackChar { get; set; }
+        public int CountAttack {  get; set; }
 
         public void GradePowerAttackOnLevel(Character character) 
         {
