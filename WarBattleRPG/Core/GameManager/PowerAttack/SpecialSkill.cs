@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 using WarBattleRPG.Core.Enums;
 using ZverzkyGame.Core.Characters;
 
-namespace ZverzkyGame.Core.GameManager.PowerAttack
+namespace WarBattleRPG.Core.GameManager.PowerAttack
 {
-    public class PowerAttack
+    public class SpecialSkill
     {
         public TypeAttack Typeattack {  get; set; }
         public double BasepowerAttackChar { get; set; }
-        public int CountAttack {  get; set; }
-
-        public void GradePowerAttackOnLevel(Character character) 
+        public int CountAttack { get; set; }
+        public void GradePowerAttackOnLevel(Character character)
         {
-            character.PowerAttack.BasepowerAttackChar += 30 + character.Level.level / 100;   
+            character.SpecialSkill.BasepowerAttackChar += 30 + character.Level.level / 100;
         }
-
     }
 }
