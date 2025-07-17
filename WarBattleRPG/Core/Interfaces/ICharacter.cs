@@ -1,4 +1,5 @@
 ﻿using WarBattleRPG.Core.GameManager.PowerAttack;
+using WarBattleRPG.Core.Interfaces;
 using ZverzkyGame.Core.GameManager.Difference;
 using ZverzkyGame.Core.GameManager.Experience;
 using ZverzkyGame.Core.GameManager.Health;
@@ -18,6 +19,7 @@ public interface ICharacter
     Level Level { get; }
     Expirience Expirience { get; }
     void Attack(ICharacter target);
+    void AttackToMobs(IMob target);
     void TakeDamage(double damage);
     void SpecialDamage(double damage);
 }

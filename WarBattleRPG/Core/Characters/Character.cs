@@ -1,5 +1,6 @@
 ﻿using WarBattleRPG.Core.Enums;
 using WarBattleRPG.Core.GameManager.PowerAttack;
+using WarBattleRPG.Core.Interfaces;
 using ZverzkyGame.Core.GameManager.Difference;
 using ZverzkyGame.Core.GameManager.Experience;
 using ZverzkyGame.Core.GameManager.Health;
@@ -41,6 +42,18 @@ namespace ZverzkyGame.Core.Characters
         public virtual void Attack(ICharacter target)
         {
             if (this.PowerAttack.CountAttack % 4 == 0) 
+            {
+                double damage = this.SpecialSkill.BasepowerAttackChar;
+                target.SpecialDamage(damage);
+                this.SpecialSkill.CountAttack += 1;
+            }
+            double attackpower = this.PowerAttack.BasepowerAttackChar;
+            target.TakeDamage(attackpower);
+            this.PowerAttack.CountAttack += 1;
+        }
+        public virtual void AttackToMobs(IMob target)
+        {
+            if (this.PowerAttack.CountAttack % 4 == 0)
             {
                 double damage = this.SpecialSkill.BasepowerAttackChar;
                 target.SpecialDamage(damage);
